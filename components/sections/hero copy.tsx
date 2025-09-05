@@ -75,7 +75,7 @@
                   href="#about"
                   className="inline-flex items-center bottom-0 pt-40 text-blue-900 font-medium rounded-md hover:opacity-90 transition-opacity"
                 >
-                  SCROLL DOWN TO EXPLOREeee
+                  SCROLL DOWN TO EXPLORE
                 </a>
               </motion.div>
             </div>

@@ -43,7 +43,7 @@ export default function OurPurpose() {
     <section
       id="purpose"
       ref={sectionRef}
-      className="mb-[30%] bg-transparent h-auto md:mx-40"
+      className="my-[30%] bg-transparent h-auto md:mx-40"
     >
       <div className="flex justify-start items-center gap-40 px-4 w-3/4">
         <p className="font-normal text-blue-900 text-4xl leading-14 capitalize">

@@ -6,9 +6,7 @@
 body{
     font-family: "Montserrat";
 }
-html, body {
-  cursor: none !important;
-}
+
 :root {
   color-scheme: light;
   --background: oklch(1 0 0);

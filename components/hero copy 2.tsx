@@ -6,7 +6,6 @@ import { getGsap } from "@/lib/gsap";
 import WhoAreWe from "./sections/WhoAreWe";
 import AboutSplit from "./sections/about-split";
 import OurPurpose from "./sections/ourpurpose";
-import OurPillar from "./sections/ourpillar";
 import OurTeam from "./sections/our-team";
 
 export default function Hero() {
@@ -53,13 +52,13 @@ export default function Hero() {
         // Zoom-in/out effect on image
         if (imgRef.current) {
           gsap.to(imgRef.current, {
-            scale: 7.5, // gentle zoom
+            scale: 9.5, // gentle zoom
             ease: "power2.out",
             scrollTrigger: {
               trigger: bgRef.current,
               start: "top top",
               end: "bottom top",
-              scrub: 2, // smooth effect
+              scrub: 5, // smooth effect
             },
             transformOrigin: "center center",
           });
@@ -112,6 +111,7 @@ export default function Hero() {
           alt="Hero background"
           className="w-full h-full object-cover"
         />
+        
         <div className="absolute bg-primary/45" aria-hidden="true" />
       </div>
 
@@ -135,7 +135,7 @@ export default function Hero() {
                   className="w-24 object-contain"
                 />&nbsp;
                 <span className="border h-12.5 border-blue-900 rounded-lg text-blue-900"></span>
-                <span className="tracking-[7px] text-blue-900 text-5xl">&nbsp;NEOLIV</span>
+                <span className="tracking-[7px] text-blue-900 md:text-5xl text-3xl">&nbsp;NEOLIV</span>
               </motion.h1>
             </div>
 
@@ -179,8 +179,8 @@ export default function Hero() {
       <section>
         <AboutSplit />
         <OurPurpose />
-        <OurPillar />
-        <OurTeam />
+        {/* <OurPillar /> */}
+        {/* <OurTeam /> */}
 
       </section>
 

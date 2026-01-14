@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react"; // hamburger + close icons
 
 const links = [
   { href: "#hero", label: "NEOLIV GROUP" },
@@ -18,7 +17,6 @@ export default function Navbar() {
   const [active, setActive] = useState<string>("#hero");
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const ids = links.map((l) => l.href.slice(1));
@@ -46,7 +44,6 @@ export default function Navbar() {
     e.preventDefault();
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    setMobileOpen(false); // close menu on click (mobile)
   };
 
   // Hide/show on scroll
@@ -71,13 +68,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky md:top-12 top-7 z-50 bg-transparent transition-transform duration-300 ${
-        show ? "translate-y-0" : "-translate-y-[calc(100%+3rem)]"
-      }`}
-    >
+  className={`sticky top-12 z-50 bg-transparent transition-transform duration-300 ${
+    show ? "translate-y-0" : "-translate-y-[calc(100%+3rem)]"
+  }`}
+>
       <div className="container mx-auto px-6">
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex justify-center gap-10 py-6 text-sm font-medium">
+        <nav className="flex justify-center gap-10 py-6 text-sm font-medium">
           {links.map((l) => {
             const isActive = active === l.href;
             return (
@@ -101,44 +97,6 @@ export default function Navbar() {
             );
           })}
         </nav>
-
-        {/* Mobile Nav - Hamburger */}
-        <div className="flex md:hidden justify-between items-center py-2">
-          <span className="text-lg font-bold text-blue-900">NEOLIV</span>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-blue-900"
-          >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu (slide + fade) */}
-        <div
-          className={`md:hidden bg-white/95 backdrop-blur-md max-w-full absolute border-t border-gray-200 overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${
-            mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <nav className="flex flex-col items-center gap-6 py-6 text-sm font-medium">
-            {links.map((l) => {
-              const isActive = active === l.href;
-              return (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={(e) => onNavClick(e, l.href)}
-                  className={`transition-colors duration-300 ${
-                    isActive
-                      ? "text-blue-900 font-bold"
-                      : "text-blue-900 hover:text-blue-900"
-                  }`}
-                >
-                  {l.label}
-                </a>
-              );
-            })}
-          </nav>
-        </div>
       </div>
     </header>
   );

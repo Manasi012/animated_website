@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
+import OurPillar from "@/components/ourpillar"
 import StoryPanels from "@/components/story-panels"
 import About from "@/components/about"
 import Verticals from "@/components/verticals"
@@ -13,6 +14,7 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import { registerGsap } from "@/lib/gsap-setup"
 import CustomCursor from "@/components/sections/customcursor"
+import OurTeam from "@/components/our-team"
 
 export default function HomePage() {
   useEffect(() => {
@@ -26,11 +28,17 @@ export default function HomePage() {
 
       <section id="hero">
         <Hero />
+        
       </section>
 
-      {/* <section id="story">
-        <StoryPanels />
-      </section> */}
+   
+      <section id="pillars">
+      <OurPillar />
+      </section>
+
+      <section id="team">
+      <OurTeam />
+      </section>
 
       {/* <section id="about" className="py-20 md:py-28">
         <div className="container mx-auto px-6">
